@@ -8,4 +8,25 @@ export const Api = {
 		const response = await fetch(`${EndPoint}/posts`);
 		return response.json();
 	},
+	fetchRoles: async () => {
+		const response = await fetch(`${EndPoint}/roles`);
+		return response.json();
+	},
+	saveUser: async (user) => {
+		console.log('API saveUser called with', user);
+		const response = await fetch(`${EndPoint}/users/${user.id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(user),
+		});
+		return response.json();
+	},
+	deleteUser: async (userId) => {
+		const response = await fetch(`${EndPoint}/users/${userId}`, {
+			method: 'DELETE',
+		});
+		return response.json();
+	},
 };

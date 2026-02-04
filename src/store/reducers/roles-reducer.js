@@ -1,7 +1,7 @@
 const initialState = [];
-export const postsReducer = (state = initialState, action) => {
+export const rolesReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'SET_POSTS':
+		case 'SET_ROLES':
 			return action.payload;
 		default:
 			return state;

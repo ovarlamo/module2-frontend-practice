@@ -6,3 +6,22 @@ export const loadUsers = () => {
 		dispatch({ type: 'SET_USERS', payload: users });
 	};
 };
+export const loadRoles = () => {
+	return async (dispatch) => {
+		const roles = await Api.fetchRoles();
+		dispatch({ type: 'SET_ROLES', payload: roles });
+	};
+};
+export const saveUser = (user) => {
+	return async (dispatch) => {
+		console.log('Thunk saveUser called with', user);
+		await Api.saveUser(user);
+		dispatch({ type: 'SAVE_USER', payload: user });
+	};
+};
+export const deleteUser = (userId) => {
+	return async (dispatch) => {
+		await Api.deleteUser(userId);
+		dispatch({ type: 'DELETE_USER', payload: { id: userId } });
+	};
+};

@@ -1,37 +1,36 @@
 {
-	"users": [
-		{
-			"id": 1,
-			"login": "oleg",
-			"password": "111",
-			"registed_at": "2025-01-01",
-			"role_id": "0"
-		},
-		{
-			"id": 2,
-			"login": "1",
-			"password": "1",
-			"registed_at": "2025-01-01",
-			"role_id": "1"
-		}
-	],
-	"roles": [
-		{ "id": "0", "name": "Администратор" },
-		{ "id": "1", "name": "Пользователь" }
-	],
-	"articles": [],
-	"posts": [
-		{
-			"id": 1,
-			"title": "json-server",
-			"author": "typicode"
-		}
-	],
-	"comments": [
-		{
-			"id": 1,
-			"body": "some comment",
-			"postId": 1
-		}
-	]
+  "users": [
+    {
+      "id": 1,
+      "login": "oleg",
+      "password": "111",
+      "registed_at": "2025-01-01",
+      "role_id": "0"
+    }
+  ],
+  "roles": [
+    {
+      "id": "0",
+      "name": "Администратор"
+    },
+    {
+      "id": "1",
+      "name": "Пользователь"
+    }
+  ],
+  "articles": [],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ]
 }

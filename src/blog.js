@@ -50,11 +50,9 @@ export const Blog = () => {
 	);
 };
 const LogoutPage = () => {
-	console.log('LogoutPage render');
 	const { logoutUser } = useStateBlog();
 	const navigate = useNavigate();
 	useEffect(() => {
-		console.log('Logging out user');
 		logoutUser();
 		setTimeout(() => {
 			navigate('/');
