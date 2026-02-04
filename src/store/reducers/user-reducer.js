@@ -5,10 +5,11 @@ const initialState = {
 	registed_at: null,
 };
 export const userReducer = (state = initialState, action) => {
-	console.log('userReducer called with', action);
 	switch (action.type) {
 		case 'SET_USER':
 			return { ...state, ...action.payload };
+		case 'CLEAR_USER':
+			return { ...initialState };
 
 		default:
 			return state;

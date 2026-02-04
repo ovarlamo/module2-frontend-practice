@@ -12,10 +12,13 @@
 			"login": "1",
 			"password": "1",
 			"registed_at": "2025-01-01",
-			"role_id": "0"
+			"role_id": "1"
 		}
 	],
-	"roles": [{ "id": "0", "name": "Администратор" }],
+	"roles": [
+		{ "id": "0", "name": "Администратор" },
+		{ "id": "1", "name": "Пользователь" }
+	],
 	"articles": [],
 	"posts": [
 		{

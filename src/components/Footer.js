@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 export const FooterContainer = ({ className }) => {
-	console.log('FooterContainer render');
 	return (
 		<footer className={className}>
 			<div>Блог веб-разботчика</div>

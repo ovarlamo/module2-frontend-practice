@@ -3,17 +3,16 @@ import { server } from '../dff/server';
 import { useStateBlog } from '../store';
 import { useNavigate } from 'react-router-dom';
 const AuthorizationContainer = ({ className }) => {
-	const { setCurrentUser } = useStateBlog();
+	const { loginUser } = useStateBlog();
 	const navigate = useNavigate();
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		server.authorize(e.target.login.value, e.target.password.value).then((user) => {
-			console.log('Authorized user:', user);
 			if (user.error) {
 				alert(user.error);
 			} else {
-				setCurrentUser(user.res);
+				loginUser(user.res);
 				navigate('/');
 			}
 		});

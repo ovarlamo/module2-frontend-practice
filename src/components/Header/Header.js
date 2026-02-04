@@ -7,7 +7,7 @@ const HeaderContainer = ({ className, currentUser }) => {
 	console.log('HeaderContainer', currentUser, className);
 	const showLoginLink = !currentUser?.login ? true : false;
 	const userLogin = currentUser?.login || '';
-	const showUserLink = currentUser?.role_id === 0;
+	const showUserLink = currentUser?.role_id === '0';
 	return (
 		<header className={className}>
 			<Logo />
