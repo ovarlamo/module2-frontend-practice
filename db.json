@@ -6,6 +6,13 @@
 			"password": "111",
 			"registed_at": "2025-01-01",
 			"role_id": "0"
+		},
+		{
+			"id": 2,
+			"login": "1",
+			"password": "1",
+			"registed_at": "2025-01-01",
+			"role_id": "0"
 		}
 	],
 	"roles": [{ "id": "0", "name": "Администратор" }],
@@ -23,8 +30,5 @@
 			"body": "some comment",
 			"postId": 1
 		}
-	],
-	"profile": {
-		"name": "typicode"
-	}
+	]
 }
