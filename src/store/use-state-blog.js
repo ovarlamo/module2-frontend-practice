@@ -4,9 +4,10 @@ export const useStateBlog = () => {
 	const dispatch = useDispatch();
 	const users = useSelector((state) => state.users);
 	const user = useSelector((state) => state.user);
+	console.log('useStateBlog', users.length, user);
 	return {
 		users: users,
-		user: user,
+		currentUser: user,
 		loadUsers: () => dispatch(loadUsers()),
 		setCurrentUser: (user) => dispatch({ type: 'SET_USER', payload: user }),
 	};

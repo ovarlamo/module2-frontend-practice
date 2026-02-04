@@ -1,15 +1,13 @@
-import { useStateBlog } from '../../store';
 import { Logo } from './Logo';
 import { Abstract } from './Abstract';
 import { ControlPanel } from './ControlPanel';
 import styled from 'styled-components';
 
 const HeaderContainer = ({ className, currentUser }) => {
-	console.log('HeaderContainer', currentUser);
-	const showLoginLink = !currentUser;
-	const showLogoutLink = !!currentUser;
-	const userLogin = currentUser ? currentUser.login : '';
-	const showUserLink = !!currentUser && currentUser.role_id === 0;
+	console.log('HeaderContainer', currentUser, className);
+	const showLoginLink = !currentUser?.login ? true : false;
+	const userLogin = currentUser?.login || '';
+	const showUserLink = currentUser?.role_id === 0;
 	return (
 		<header className={className}>
 			<Logo />
@@ -17,7 +15,6 @@ const HeaderContainer = ({ className, currentUser }) => {
 
 			<ControlPanel
 				showLogin={showLoginLink}
-				showLogout={showLogoutLink}
 				userLogin={userLogin}
 				showUserLink={showUserLink}
 			/>

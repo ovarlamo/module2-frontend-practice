@@ -9,12 +9,12 @@ const StyledControlPanel = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 `;
-export const ControlPanel = ({ showLogin, showLogout, userLogin, showUserLink }) => {
+export const ControlPanel = ({ showLogin, userLogin, showUserLink }) => {
 	return (
 		<StyledControlPanel>
 			{showLogin && <Link to="/login">Вход</Link>}
 			{userLogin && <span style={{ margin: '0 10px' }}>{userLogin}</span>}
-			{showLogout && <Link to="/logout">Выход</Link>}
+			{!showLogin && <Link to="/logout">Выход</Link>}
 			{showUserLink && <Link to="/users">Пользователи</Link>}
 		</StyledControlPanel>
 	);
