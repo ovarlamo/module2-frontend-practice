@@ -22,10 +22,10 @@ const AuthorizationContainer = ({ className }) => {
 		<div className={className}>
 			<h1>Авторизация </h1>
 			<form onSubmit={handleSubmit}>
-				<input type="text" name="login" />
+				<input type="text" name="login" placeholder="Логин..." />
 
 				<label>
-					<input type="password" name="password" />
+					<input type="password" name="password" placeholder="Пароль..." />
 				</label>
 
 				<button type="submit">Войти</button>

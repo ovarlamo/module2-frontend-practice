@@ -23,6 +23,15 @@ export const Api = {
 		});
 		return response.json();
 	},
+	createUser: async (user) => {
+		const response = await fetch(`${EndPoint}/users`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(user),
+		});
+	},
 	deleteUser: async (userId) => {
 		const response = await fetch(`${EndPoint}/users/${userId}`, {
 			method: 'DELETE',

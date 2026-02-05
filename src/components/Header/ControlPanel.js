@@ -13,6 +13,7 @@ export const ControlPanel = ({ showLogin, userLogin, showUserLink }) => {
 	return (
 		<StyledControlPanel>
 			{showLogin && <Link to="/login">Вход</Link>}
+			{showLogin && <Link to="/register">Регистрация</Link>}
 			{userLogin && <span style={{ margin: '0 10px' }}>{userLogin}</span>}
 			{!showLogin && <Link to="/logout">Выход</Link>}
 			{showUserLink && <Link to="/users">Пользователи</Link>}
