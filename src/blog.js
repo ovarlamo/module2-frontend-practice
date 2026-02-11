@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { useStateBlog } from './store/use-state-blog';
 import { Footer, Header } from './components';
 import { Registration } from './pages/Registration';

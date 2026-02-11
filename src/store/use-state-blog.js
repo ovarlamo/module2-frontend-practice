@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { loadUsers, loadRoles, saveUser, deleteUser } from './thunks';
+import { loadUsers, loadRoles, saveUser, deleteUser, createUser } from './thunks';
 export const useStateBlog = () => {
 	const dispatch = useDispatch();
 	const users = useSelector((state) => state.users);
@@ -18,5 +18,6 @@ export const useStateBlog = () => {
 			dispatch({ type: 'SET_USER_ROLE', payload: { userId, roleId } }),
 		saveUser: (user) => dispatch(saveUser(user)),
 		deleteUser: (userId) => dispatch(deleteUser(userId)),
+		createUser: (login, password) => dispatch(createUser(login, password)),
 	};
 };

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const RoleSelectContainer = ({ selectedRole, onChange, roles }) => {
-	console.log('RoleSelectContainer', roles);
 	return (
 		<select value={selectedRole} onChange={(e) => onChange(e.target.value)}>
 			{roles.map((role) => (

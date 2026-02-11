@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 import { server } from '../dff/server';
 import { useStateBlog } from '../store';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { ErrMsgBox } from '../components/ErrorMsgBlock';
 const AuthorizationContainer = ({ className }) => {
 	const { loginUser } = useStateBlog();
 	const navigate = useNavigate();
+	const [errMsg, setErrMsg] = useState('');
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		server.authorize(e.target.login.value, e.target.password.value).then((user) => {
-			if (user.error) {
-				alert(user.error);
+		server.authorize(e.target.login.value, e.target.password.value).then((resp) => {
+			if (resp.error) {
+				setErrMsg(resp.error);
 			} else {
-				loginUser(user.res);
+				loginUser(resp.res);
 				navigate('/');
 			}
 		});
@@ -29,7 +32,11 @@ const AuthorizationContainer = ({ className }) => {
 				</label>
 
 				<button type="submit">Войти</button>
+				<Link to="/register">
+					<button>Зарегистрироваться</button>
+				</Link>
 			</form>
+			{errMsg && <ErrMsgBox>{errMsg}</ErrMsgBox>}
 		</div>
 	);
 };
@@ -37,12 +44,26 @@ export const Authorization = styled(AuthorizationContainer)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 50px;
+	justify-content: center;
+	margin: 3rem auto;
+	gap: 0.5rem;
+	width: 300px;
 
-	form {
+	& form {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 0.5rem;
 		margin-top: 20px;
+		width: 100%;
+	}
+	& input {
+		font-size: 1.2rem;
+		padding: 0.5rem;
+		width: 100%;
+	}
+	& button {
+		font-size: 1.2rem;
+		padding: 0.5rem;
+		width: 100%;
 	}
 `;

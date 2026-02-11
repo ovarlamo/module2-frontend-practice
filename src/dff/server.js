@@ -1,16 +1,30 @@
 import { Api } from '../dff/api';
-function getUsers() {
-	return Api.fetchUsers();
-}
-async function getUser(login) {
-	const users = await getUsers();
-	const user = users.find((user) => user.login === login);
-	return user;
+
+function getUser(login) {
+	return Api.fetchUserByLogin(login);
 }
 
 export const server = {
+	async registration(regLogin, regPassword) {
+		const user = await getUser(regLogin);
+		if (user) {
+			return {
+				error: 'Такой логин уже существует',
+				res: null,
+			};
+		}
+		const newUser = await Api.createUser({
+			login: regLogin,
+			password: regPassword,
+			role_id: 3,
+			registed_at: new Date().toLocaleDateString(),
+		});
+		if (!newUser) {
+			return { error: 'Пользователь не создан', res: null };
+		}
+		return { error: null, res: { ...newUser } };
+	},
 	async authorize(authLogin, authPassword) {
-		console.log('Server authorize called with', authLogin, authPassword);
 		const user = await getUser(authLogin);
 		if (!user) {
 			return {

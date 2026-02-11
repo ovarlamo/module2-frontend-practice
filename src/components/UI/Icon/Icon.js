@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 const IconContainer = ({ children, className, onClick }) => {
 	return (
-		<span className={`icon-container ${className || ''}`} onClick={onClick}>
+		<i className={`fa fa-fw fa-lg ${className || ''}`} onClick={onClick}>
 			{children}
-		</span>
+		</i>
 	);
 };
 export const Icon = styled(IconContainer)`
@@ -11,14 +11,17 @@ export const Icon = styled(IconContainer)`
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	width: 24px;
-	height: 24px;
-	font-size: 18px;
-	svg {
-		width: 100%;
-		height: 100%;
-
-		fill: currentColor;
-		stroke: currentColor;
+	/* Стили для активного состояния */
+	&:hover {
+		color: #007bff;
 	}
+
+	/* Перекрываем стили, если disabled={true} */
+	${({ disabled }) =>
+		disabled &&
+		`
+		cursor: not-allowed;
+		opacity: 0.5;
+		pointer-events: none; /* Полностью отключает hover и клики */
+	`}
 `;

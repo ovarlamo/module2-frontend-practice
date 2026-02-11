@@ -25,3 +25,9 @@ export const deleteUser = (userId) => {
 		dispatch({ type: 'DELETE_USER', payload: { id: userId } });
 	};
 };
+export const createUser = (login, password) => {
+	return async (dispatch) => {
+		const user = await Api.createUser(login, password);
+		dispatch({ type: 'ADD_USER', payload: user });
+	};
+};

@@ -4,7 +4,6 @@ import { ControlPanel } from './ControlPanel';
 import styled from 'styled-components';
 
 const HeaderContainer = ({ className, currentUser }) => {
-	console.log('HeaderContainer', currentUser, className);
 	const showLoginLink = !currentUser?.login ? true : false;
 	const userLogin = currentUser?.login || '';
 	const showUserLink = currentUser?.role_id === '0';

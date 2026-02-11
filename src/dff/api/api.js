@@ -4,6 +4,12 @@ export const Api = {
 		const response = await fetch(`${EndPoint}/users`);
 		return response.json();
 	},
+	fetchUserByLogin: async (login) => {
+		const resp = await fetch(`${EndPoint}/users?login=${login}`);
+		const users = await resp.json();
+		return users[0];
+	},
+
 	fetchPosts: async () => {
 		const response = await fetch(`${EndPoint}/posts`);
 		return response.json();
@@ -31,6 +37,7 @@ export const Api = {
 			},
 			body: JSON.stringify(user),
 		});
+		return response.json();
 	},
 	deleteUser: async (userId) => {
 		const response = await fetch(`${EndPoint}/users/${userId}`, {

@@ -15,6 +15,8 @@ export const usersReducer = (state = initialState, action) => {
 			);
 		case 'DELETE_USER':
 			return state.filter((user) => user.id !== action.payload.id);
+		case 'ADD_USER':
+			return [...state, ...action.payload];
 
 		default:
 			return state;
