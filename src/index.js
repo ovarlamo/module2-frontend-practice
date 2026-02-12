@@ -10,11 +10,9 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<StrictMode>
-		<BrowserRouter>
-			<Provider store={store}>
-				<Blog />
-			</Provider>
-		</BrowserRouter>
-	</StrictMode>,
+	<BrowserRouter>
+		<Provider store={store}>
+			<Blog />
+		</Provider>
+	</BrowserRouter>,
 );

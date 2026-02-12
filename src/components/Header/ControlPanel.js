@@ -16,7 +16,7 @@ const BtnBlockRow = styled.div`
 	gap: 10px;
 `;
 
-export const ControlPanel = ({ showLogin, userLogin, showUserLink }) => {
+export const ControlPanel = ({ showLogin, userLogin, showUserLink, showPostLink }) => {
 	const navigate = useNavigate();
 	const handleBackBtn = () => navigate(-1);
 	return (
@@ -37,11 +37,11 @@ export const ControlPanel = ({ showLogin, userLogin, showUserLink }) => {
 
 			<BtnBlockRow>
 				<Icon className="fa fa-backward" onClick={handleBackBtn}></Icon>
-
-				<Link to="/posts">
-					<Icon className="fa fa-file-text-o" />
-				</Link>
-
+				{showPostLink && (
+					<Link to="/post">
+						<Icon className="fa fa-file-text-o" />
+					</Link>
+				)}
 				{showUserLink && (
 					<Link to="/users">
 						<Icon className="fa  fa-users" />

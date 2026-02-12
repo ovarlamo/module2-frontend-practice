@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 import { RoleSelect } from '../RoleSelect';
 import { Icon } from '../UI/Icon';
 export const UserRow = ({ user }) => {
-	const { saveUser, deleteUser, roles } = useStateBlog();
+	const { saveUser, deleteUser, roles, updateUserRole } = useStateBlog();
 	const [newRoleId, setNewRoleId] = useState(user.role_id);
 	const handleRoleChange = (newRoleId) => {
 		setNewRoleId(newRoleId);
 	};
 	const handleSave = () => {
-		saveUser({ ...user, role_id: newRoleId });
+		updateUserRole(user.id, newRoleId);
 	};
 	return (
 		<tr>

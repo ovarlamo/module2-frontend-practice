@@ -3,7 +3,7 @@ import { server } from '../dff/server';
 import { useStateBlog } from '../store';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ErrMsgBox } from '../components/ErrorMsgBlock';
+import { ErrMsgBox } from '../components/ErrMsgBlock';
 
 const RegistrationContainer = ({ className }) => {
 	const { loginUser } = useStateBlog();

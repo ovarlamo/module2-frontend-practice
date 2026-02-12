@@ -3,7 +3,7 @@ import { server } from '../dff/server';
 import { useStateBlog } from '../store';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { ErrMsgBox } from '../components/ErrorMsgBlock';
+import { ErrMsgBox } from '../components/ErrMsgBlock';
 const AuthorizationContainer = ({ className }) => {
 	const { loginUser } = useStateBlog();
 	const navigate = useNavigate();
@@ -11,7 +11,7 @@ const AuthorizationContainer = ({ className }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		server.authorize(e.target.login.value, e.target.password.value).then((resp) => {
+		server.authorise(e.target.login.value, e.target.password.value).then((resp) => {
 			if (resp.error) {
 				setErrMsg(resp.error);
 			} else {

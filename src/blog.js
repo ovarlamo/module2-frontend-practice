@@ -1,8 +1,8 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useStateBlog } from './store/use-state-blog';
 import { Footer, Header } from './components';
-import { Registration } from './pages/Registration';
-import { Authorization } from './pages/Authorization';
+import { Registration, Authorization, Post, Posts } from './pages';
+
 import { Users } from './pages/Users';
 import styled from 'styled-components';
 import { useEffect } from 'react';
@@ -30,6 +30,9 @@ export const Blog = () => {
 				<Route path="/login" element={<Authorization />} />
 				<Route path="/logout" element={<LogoutPage />} />
 				<Route path="/register" element={<Registration />} />
+
+				<Route path="/post/:postId" element={<Post />} />
+				<Route path="/posts" element={<Posts />} />
 				<Route
 					path="/unauthorized"
 					element={<h2>У вас нет доступа к этой странице</h2>}
@@ -42,7 +45,6 @@ export const Blog = () => {
 						</ProtectedRoute>
 					}
 				/>
-				<Route path="/posts/:postId" element={<h2>Страница поста</h2>} />
 			</Routes>
 
 			<Footer />

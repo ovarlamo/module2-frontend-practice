@@ -12,7 +12,15 @@
       "password": "1",
       "role_id": "0",
       "registed_at": "05.02.2026",
-      "id": 3
+      "id": 0
+    },
+    {
+      "login": "q",
+      "password": "q",
+      "role_id": "3",
+      "registed_at": "11.02.2026",
+      "id": 4,
+      "fld": "0"
     }
   ],
   "roles": [
@@ -36,9 +44,20 @@
   "articles": [],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "json-server",
-      "author": "typicode"
+      "author": "typicode",
+      "created_at": "01/01/2020",
+      "img_src": "/images/training.png",
+      "text": "Обновление стейта в usePost: Твой кастомный хук делает запрос и внутри себя вызывает setSomething (когда пришли данные). Любое изменение стейта внутри хука заставляет Post перерендериться. Это 3-й вызов."
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "author": "typicode",
+      "created_at": "01/01/2020",
+      "img_src": "/images/training.png",
+      "text": "Обновление стейта в usePost: Твой кастомный хук делает запрос и внутри себя вызывает setSomething (когда пришли данные). Любое изменение стейта внутри хука заставляет Post перерендериться. Это 3-й вызов."
     }
   ],
   "comments": [
