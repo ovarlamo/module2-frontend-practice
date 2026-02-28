@@ -10,6 +10,7 @@ const HeaderContainer = ({ className, currentUser }) => {
 	const showUserLink = currentUser?.role_id === ROLES.ADMIN;
 	const showPostLink =
 		currentUser?.role_id === ROLES.ADMIN || currentUser?.role_id === ROLES.MODERATOR;
+
 	return (
 		<header className={className}>
 			<Logo />

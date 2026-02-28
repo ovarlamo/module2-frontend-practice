@@ -29,18 +29,23 @@ export const ControlPanel = ({ showLogin, userLogin, showUserLink, showPostLink 
 				)}
 				{userLogin && <span style={{ margin: '0 10px' }}>{userLogin}</span>}
 				{!showLogin && (
-					<Icon className="fa-sign-out">
-						<Link to="/logout" />
-					</Icon>
+					<Link to="/logout">
+						<Icon className="fa-sign-out" />
+					</Link>
 				)}
 			</BtnBlockRow>
 
 			<BtnBlockRow>
 				<Icon className="fa fa-backward" onClick={handleBackBtn}></Icon>
 				{showPostLink && (
-					<Link to="/post">
-						<Icon className="fa fa-file-text-o" />
-					</Link>
+					<>
+						<Link to="/post">
+							<Icon className="fa fa-file-text-o" />
+						</Link>
+						<Link to="/posts">
+							<Icon className="fa fa-files-o" />
+						</Link>
+					</>
 				)}
 				{showUserLink && (
 					<Link to="/users">

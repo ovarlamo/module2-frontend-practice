@@ -6,13 +6,13 @@ export const ProtectedRoute = ({ children, requiredRole }) => {
 	const isAuthenticated = !!currentUser?.login;
 	const hasRequiredRole = currentUser?.role_id === requiredRole;
 
-	/* 	if (!isAuthenticated) {
+	if (!isAuthenticated) {
 		return <Navigate to="/login" />;
 	}
 
 	if (!hasRequiredRole) {
 		return <Navigate to="/unauthorized" />;
-	} */
+	}
 
 	return children;
 };

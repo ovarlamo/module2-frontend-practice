@@ -10,14 +10,14 @@
     {
       "login": "1",
       "password": "1",
-      "role_id": "0",
+      "role_id": "1",
       "registed_at": "05.02.2026",
       "id": 0
     },
     {
       "login": "q",
       "password": "q",
-      "role_id": "3",
+      "role_id": "1",
       "registed_at": "11.02.2026",
       "id": 4,
       "fld": "0"
@@ -53,18 +53,51 @@
     },
     {
       "id": "2",
-      "title": "json-server",
+      "title": "json-server111",
       "author": "typicode",
       "created_at": "01/01/2020",
       "img_src": "/images/training.png",
-      "text": "Обновление стейта в usePost: Твой кастомный хук делает запрос и внутри себя вызывает setSomething (когда пришли данные). Любое изменение стейта внутри хука заставляет Post перерендериться. Это 3-й вызов."
+      "text": "О11111111111бновление стейта в usePost: Твой кастомный хук делает запрос и внутри себя вызывает setSomething (когда пришли данные). Любое изменение стейта внутри хука заставляет Post перерендериться. Это 3-й вызов.111111111111111111"
+    },
+    {
+      "title": "wwwwwwwwww",
+      "text": "wwwwwwwwww",
+      "id": "Azg0qEo"
+    },
+    {
+      "title": "111",
+      "text": "111",
+      "id": "o3y4-EJ"
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": 2,
       "body": "some comment",
-      "postId": 1
+      "post_id": 2,
+      "created_at": "01/01/2020",
+      "login": "oleg"
+    },
+    {
+      "post_id": "2",
+      "login": "",
+      "created_at": "Fri Feb 13 2026",
+      "id": 3,
+      "body": "!!!!!!!!!!!"
+    },
+    {
+      "body": "yyyyyyyyyyyyyyyy",
+      "post_id": "2",
+      "login": "",
+      "created_at": "Fri Feb 13 2026",
+      "id": 4
+    },
+    {
+      "body": "wwwwwwwwwww",
+      "post_id": "2",
+      "login": "1",
+      "created_at": "Fri Feb 13 2026",
+      "id": 5
     }
   ]
 }

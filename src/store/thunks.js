@@ -12,9 +12,22 @@ export const loadRoles = () => {
 		dispatch({ type: 'SET_ROLES', payload: roles });
 	};
 };
+export const loadPosts = (searchStr) => {
+	return async (dispatch) => {
+		const posts = await Api.fetchPosts(searchStr);
+
+		const promises = posts.map((post) => {
+			return Api.fetchComments(post.id).then((res) => {
+				return { ...post, commentsCount: res.length };
+			});
+		});
+		const postsWithComments = await Promise.all(promises);
+
+		dispatch({ type: 'SET_POSTS', payload: postsWithComments });
+	};
+};
 export const saveUser = (user) => {
 	return async (dispatch) => {
-		console.log('Thunk saveUser called with', user);
 		await Api.saveUser(user);
 		dispatch({ type: 'SAVE_USER', payload: user });
 	};
@@ -41,6 +54,12 @@ export const createUser = (login, password) => {
 	return async (dispatch) => {
 		const user = await Api.createUser(login, password);
 		dispatch({ type: 'ADD_USER', payload: user });
+	};
+};
+export const createPost = (post) => {
+	return async (dispatch) => {
+		const resp = await Api.createPost(post);
+		dispatch({ type: 'ADD_POST', payload: resp });
 	};
 };
 export const updateUserRole = (userId, roleId) => {

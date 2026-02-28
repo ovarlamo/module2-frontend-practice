@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useStateBlog } from './store/use-state-blog';
 import { Footer, Header } from './components';
-import { Registration, Authorization, Post, Posts } from './pages';
+import { Registration, Authorization, Post, Posts, NewPost } from './pages';
 
 import { Users } from './pages/Users';
 import styled from 'styled-components';
@@ -21,7 +21,6 @@ const Main = styled.main`
 export const Blog = () => {
 	const { users, currentUser } = useStateBlog();
 
-	//console.log('Blog render', users.length, currentUser);
 	return (
 		<Main>
 			<Header currentUser={currentUser} />
@@ -32,6 +31,7 @@ export const Blog = () => {
 				<Route path="/register" element={<Registration />} />
 
 				<Route path="/post/:postId" element={<Post />} />
+				<Route path="/post" element={<NewPost />} />
 				<Route path="/posts" element={<Posts />} />
 				<Route
 					path="/unauthorized"
@@ -45,6 +45,7 @@ export const Blog = () => {
 						</ProtectedRoute>
 					}
 				/>
+				<Route path="*" element={<h2>Страницы не существует</h2>} />
 			</Routes>
 
 			<Footer />
@@ -52,13 +53,15 @@ export const Blog = () => {
 	);
 };
 const LogoutPage = () => {
+	console.log('logout');
 	const { logoutUser } = useStateBlog();
 	const navigate = useNavigate();
 	useEffect(() => {
+		console.log('useeffect logout');
 		logoutUser();
 		setTimeout(() => {
-			navigate('/');
-		}, 1000);
+			navigate('/login');
+		}, 500);
 	}, []);
 	return <h2>Вы вышли</h2>;
 };

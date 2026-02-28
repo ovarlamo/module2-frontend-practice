@@ -51,8 +51,8 @@ export const Api = {
 		});
 		return response.json();
 	},
-	fetchPosts: async () => {
-		const response = await fetch(`${EndPoint}/posts`);
+	fetchPosts: async (searchStr = '') => {
+		const response = await fetch(`${EndPoint}/posts?title_like=${searchStr}`);
 		return response.json();
 	},
 	fetchPost: async (id) => {
@@ -84,6 +84,31 @@ export const Api = {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(post),
+		});
+		return response.json();
+	},
+	fetchComments: async (postId) => {
+		const response = await fetch(`${EndPoint}/comments?post_id=${postId}`);
+		return response.json();
+	},
+	createComment: async (postId, commentText, login) => {
+		const response = await fetch(`${EndPoint}/comments`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				body: commentText,
+				post_id: postId,
+				login: login,
+				created_at: new Date().toDateString(),
+			}),
+		});
+		return response.json();
+	},
+	deleteComment: async (id) => {
+		const response = await fetch(`${EndPoint}/comments/${id}`, {
+			method: 'DELETE',
 		});
 		return response.json();
 	},
